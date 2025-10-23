@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard - MC Dental Clinic</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>MC Dental Clinic</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="patient-dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="book-appointment.html">Book Appointment</a></li>
+                <li><a href="#" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="dashboard-container">
+        <div class="dashboard-sidebar">
+            <div class="user-info">
+                <img src="images/default-avatar.png" alt="User Avatar" class="avatar">
+                <h3 id="userName">Loading...</h3>
+                <p id="userEmail">Loading...</p>
+            </div>
+            <ul class="dashboard-menu">
+                <li><a href="#profile" class="active">My Profile</a></li>
+                <li><a href="#appointments">My Appointments</a></li>
+                <li><a href="#dental-chart">Dental Chart</a></li>
+                <li><a href="#gallery">Before/After Gallery</a></li>
+            </ul>
+        </div>
+
+        <div class="dashboard-content">
+            <!-- Profile Section -->
+            <section id="profile" class="dashboard-section active">
+                <h2>My Profile</h2>
+                <div class="profile-info">
+                    <form id="profileForm">
+                        <div class="form-group">
+                            <label for="profileName">Full Name</label>
+                            <input type="text" id="profileName" name="name" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="profileEmail">Email</label>
+                            <input type="email" id="profileEmail" name="email" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="profileDob">Date of Birth</label>
+                            <input type="date" id="profileDob" name="dob" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="profileAddress">Address</label>
+                            <textarea id="profileAddress" name="address" readonly></textarea>
+                        </div>
+                        <button type="button" id="editProfileBtn" class="btn">Edit Profile</button>
+                        <button type="submit" id="saveProfileBtn" class="btn" style="display: none;">Save Changes</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Appointments Section -->
+            <section id="appointments" class="dashboard-section">
+                <h2>My Appointments</h2>
+                <div class="appointments-list">
+                    <div class="upcoming-appointments">
+                        <h3>Upcoming Appointments</h3>
+                        <div id="upcomingAppointmentsList">
+                            <!-- Appointments will be loaded dynamically -->
+                        </div>
+                    </div>
+                    <div class="past-appointments">
+                        <h3>Past Appointments</h3>
+                        <div id="pastAppointmentsList">
+                            <!-- Past appointments will be loaded dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dental Chart Section -->
+            <section id="dental-chart" class="dashboard-section">
+                <h2>Dental Chart</h2>
+                <div class="dental-chart-container">
+                    <div class="treatment-history">
+                        <h3>Treatment History</h3>
+                        <div id="treatmentList">
+                            <!-- Treatment history will be loaded dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery Section -->
+            <section id="gallery" class="dashboard-section">
+                <h2>Before/After Gallery</h2>
+                <div class="gallery-container">
+                    <div id="imageGallery">
+                        <!-- Images will be loaded dynamically -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/auth.js"></script>
+    <script src="js/patient-dashboard.js"></script>
+</body>
+</html>

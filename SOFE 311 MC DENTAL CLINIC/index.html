@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MC Dental Clinic</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>MC Dental Clinic</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="dropdown">
+                    <a href="#" class="login-btn">Login ▼</a>
+                    <div class="dropdown-content">
+                        <a href="login.html">Patient Login</a>
+                        <a href="staff-login.html">Staff Login</a>
+                        <a href="admin-login.html">Admin Login</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Welcome to MC Dental Clinic</h1>
+                <p>Your trusted partner for comprehensive dental care</p>
+                <a href="#" class="cta-button" onclick="checkLoginForAppointment()">Book Appointment</a>
+            </div>
+        </section>
+
+        <!-- Rest of the content remains the same -->
+    </main>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login Required</h2>
+            <p>Please log in to book an appointment.</p>
+            <div class="modal-buttons">
+                <a href="login.html" class="btn">Login</a>
+                <a href="register.html" class="btn">Register</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to handle appointment booking click
+        function checkLoginForAppointment() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) {
+                document.getElementById('loginModal').style.display = 'block';
+            } else {
+                window.location.href = 'book-appointment.html';
+            }
+        }
+
+        // Close modal when clicking the X or outside the modal
+        const modal = document.getElementById('loginModal');
+        const span = document.getElementsByClassName('close')[0];
+
+        span.onclick = function() {
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

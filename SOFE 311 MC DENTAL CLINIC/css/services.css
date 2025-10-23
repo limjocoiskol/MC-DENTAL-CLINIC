@@ -1,0 +1,153 @@
+.services-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('../images/dental-services.jpg') center/cover;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    margin-top: 4rem;
+}
+
+.services-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #D4AF37;
+}
+
+.services-hero p {
+    font-size: 1.2rem;
+}
+
+/* Services List */
+.services-list {
+    padding: 4rem 0;
+    background-color: #f8f9fa;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background-color: white;
+    border: 2px solid #D4AF37;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.service-content {
+    padding: 1.5rem;
+}
+
+.service-content h3 {
+    color: #D4AF37;
+    margin-bottom: 1rem;
+}
+
+.service-content p {
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.service-price {
+    font-weight: bold;
+    color: #D4AF37;
+    margin-bottom: 1rem;
+}
+
+.service-duration {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Promotions Section */
+.promotions {
+    padding: 4rem 0;
+    background-color: #333;
+}
+
+.promotions .section-title {
+    color: #D4AF37;
+}
+
+.promotions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.promo-card {
+    background-color: white;
+    border: 2px solid #D4AF37;
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.promo-card h3 {
+    color: #D4AF37;
+    margin-bottom: 1rem;
+}
+
+.promo-card .discount {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #D4AF37;
+    margin: 1rem 0;
+}
+
+.promo-card .validity {
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+/* CTA Section */
+.cta-section {
+    background-color: #D4AF37;
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.cta-section h2 {
+    margin-bottom: 1rem;
+}
+
+.cta-section .cta-button {
+    background-color: white;
+    color: #D4AF37;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .services-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .services-grid,
+    .promotions-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-card,
+    .promo-card {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}

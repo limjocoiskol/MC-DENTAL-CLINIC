@@ -1,0 +1,181 @@
+.about-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('../images/about-hero.jpg') center/cover;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    margin-top: 4rem;
+}
+
+.about-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #D4AF37;
+}
+
+.about-hero p {
+    font-size: 1.2rem;
+}
+
+/* About Content */
+.about-content {
+    padding: 4rem 0;
+}
+
+.about-section {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.about-section p {
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+/* Mission & Vision */
+.mission-vision {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.mission,
+.vision {
+    padding: 2rem;
+    background-color: #333;
+    border: 2px solid #D4AF37;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.mission h2,
+.vision h2 {
+    color: #D4AF37;
+    margin-bottom: 1rem;
+}
+
+.mission p,
+.vision p {
+    color: white;
+    line-height: 1.6;
+}
+
+/* Team Section */
+.team-section {
+    margin-bottom: 4rem;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.team-member {
+    background-color: white;
+    border: 2px solid #D4AF37;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+}
+
+.team-member img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.team-member-info {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.team-member-info h3 {
+    color: #D4AF37;
+    margin-bottom: 0.5rem;
+}
+
+.team-member-info p {
+    color: #333;
+}
+
+/* Values Section */
+.values-section {
+    margin-bottom: 4rem;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.value-card {
+    background-color: #333;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 2px solid #D4AF37;
+}
+
+.value-card h3 {
+    color: #D4AF37;
+    margin-bottom: 1rem;
+}
+
+.value-card p {
+    color: white;
+    line-height: 1.6;
+}
+
+/* CTA Section */
+.cta-section {
+    background-color: #333;
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.cta-section h2 {
+    color: #D4AF37;
+    margin-bottom: 1rem;
+}
+
+.cta-section p {
+    margin-bottom: 2rem;
+}
+
+.cta-section .cta-button {
+    background-color: #D4AF37;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .mission-vision,
+    .team-grid,
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .team-member,
+    .value-card {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment - MC Dental Clinic</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/appointment.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>MC Dental Clinic</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="patient-dashboard.html">Dashboard</a></li>
+                <li><a href="book-appointment.html" class="active">Book Appointment</a></li>
+                <li><a href="#" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="appointment-container">
+        <h2>Book Your Appointment</h2>
+        
+        <form id="appointmentForm" class="appointment-form">
+            <div class="form-section">
+                <h3>Personal Information</h3>
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required readonly>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required readonly>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Contact Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Service Selection</h3>
+                <div class="form-group">
+                    <label for="service">Select Dental Service</label>
+                    <select id="service" name="service" required>
+                        <option value="">Choose a service...</option>
+                        <!-- Services will be loaded dynamically -->
+                    </select>
+                </div>
+                <div id="serviceDetails" class="service-details">
+                    <!-- Service details will be shown here -->
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Appointment Schedule</h3>
+                <div class="form-group">
+                    <label for="date">Preferred Date</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Available Time Slots</label>
+                    <select id="time" name="time" required>
+                        <option value="">Select a date first...</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Payment Information</h3>
+                <div class="payment-methods">
+                    <h4>Available Payment Methods:</h4>
+                    <div class="payment-options">
+                        <!-- Payment options will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Additional Notes</h3>
+                <div class="form-group">
+                    <textarea id="notes" name="notes" placeholder="Any specific concerns or questions?"></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Book Appointment</button>
+        </form>
+    </main>
+
+    <script src="js/auth.js"></script>
+    <script src="js/appointment.js"></script>
+</body>
+</html>

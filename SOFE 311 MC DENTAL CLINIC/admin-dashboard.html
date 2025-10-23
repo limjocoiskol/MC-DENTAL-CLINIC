@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - MC Dental Clinic</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>MC Dental Clinic</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="admin-dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="#" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="dashboard-container">
+        <div class="dashboard-sidebar">
+            <div class="user-info">
+                <img src="images/default-avatar.png" alt="Admin Avatar" class="avatar">
+                <h3 id="userName">Loading...</h3>
+                <p id="userEmail">Loading...</p>
+            </div>
+            <ul class="dashboard-menu">
+                <li><a href="#overview" class="active">Overview</a></li>
+                <li><a href="#staff">Staff Management</a></li>
+                <li><a href="#doctors">Doctor Management</a></li>
+                <li><a href="#services">Services & Promos</a></li>
+                <li><a href="#schedule">Schedule Management</a></li>
+                <li><a href="#patients">All Patients</a></li>
+            </ul>
+        </div>
+
+        <div class="dashboard-content">
+            <!-- Overview Section -->
+            <section id="overview" class="dashboard-section active">
+                <h2>Dashboard Overview</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Patients</h3>
+                        <p id="totalPatients">Loading...</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Today's Appointments</h3>
+                        <p id="todayAppointments">Loading...</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Active Staff</h3>
+                        <p id="activeStaff">Loading...</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Services</h3>
+                        <p id="totalServices">Loading...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Staff Management Section -->
+            <section id="staff" class="dashboard-section">
+                <h2>Staff Management</h2>
+                <button class="btn add-btn" onclick="showAddStaffModal()">Add New Staff</button>
+                <div class="staff-list">
+                    <!-- Staff list will be loaded dynamically -->
+                </div>
+            </section>
+
+            <!-- Doctor Management Section -->
+            <section id="doctors" class="dashboard-section">
+                <h2>Doctor Management</h2>
+                <button class="btn add-btn" onclick="showAddDoctorModal()">Add New Doctor</button>
+                <div class="doctors-list">
+                    <!-- Doctors list will be loaded dynamically -->
+                </div>
+            </section>
+
+            <!-- Services & Promos Section -->
+            <section id="services" class="dashboard-section">
+                <h2>Services & Promotions</h2>
+                <div class="services-container">
+                    <div class="services-section">
+                        <h3>Dental Services</h3>
+                        <button class="btn add-btn" onclick="showAddServiceModal()">Add New Service</button>
+                        <div class="services-list">
+                            <!-- Services list will be loaded dynamically -->
+                        </div>
+                    </div>
+                    <div class="promos-section">
+                        <h3>Active Promotions</h3>
+                        <button class="btn add-btn" onclick="showAddPromoModal()">Add New Promotion</button>
+                        <div class="promos-list">
+                            <!-- Promotions list will be loaded dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Schedule Management Section -->
+            <section id="schedule" class="dashboard-section">
+                <h2>Schedule Management</h2>
+                <div class="schedule-container">
+                    <div class="clinic-hours">
+                        <h3>Clinic Hours</h3>
+                        <form id="clinicHoursForm">
+                            <!-- Clinic hours form will be loaded dynamically -->
+                        </form>
+                    </div>
+                    <div class="doctor-schedules">
+                        <h3>Doctor Schedules</h3>
+                        <div id="doctorSchedulesList">
+                            <!-- Doctor schedules will be loaded dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- All Patients Section -->
+            <section id="patients" class="dashboard-section">
+                <h2>All Patients</h2>
+                <div class="search-filters">
+                    <input type="text" id="patientSearch" placeholder="Search patients...">
+                    <select id="patientFilter">
+                        <option value="all">All Patients</option>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+                <div class="patients-table-container">
+                    <table class="dashboard-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Last Visit</th>
+                                <th>Total Visits</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="patientsTableBody">
+                            <!-- Patient records will be loaded dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modals -->
+    <!-- Add Staff Modal -->
+    <div id="addStaffModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New Staff</h2>
+            <form id="addStaffForm">
+                <div class="form-group">
+                    <label for="staffName">Full Name</label>
+                    <input type="text" id="staffName" required>
+                </div>
+                <div class="form-group">
+                    <label for="staffEmail">Email</label>
+                    <input type="email" id="staffEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="staffPassword">Password</label>
+                    <input type="password" id="staffPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="staffRole">Role</label>
+                    <select id="staffRole" required>
+                        <option value="staff">Staff</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Add Staff</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Doctor Modal -->
+    <div id="addDoctorModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New Doctor</h2>
+            <form id="addDoctorForm">
+                <div class="form-group">
+                    <label for="doctorName">Full Name</label>
+                    <input type="text" id="doctorName" required>
+                </div>
+                <div class="form-group">
+                    <label for="doctorSpecialization">Specialization</label>
+                    <input type="text" id="doctorSpecialization" required>
+                </div>
+                <div class="form-group">
+                    <label for="doctorEmail">Email</label>
+                    <input type="email" id="doctorEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="doctorPhone">Phone</label>
+                    <input type="tel" id="doctorPhone" required>
+                </div>
+                <button type="submit" class="btn">Add Doctor</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Service Modal -->
+    <div id="addServiceModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New Service</h2>
+            <form id="addServiceForm">
+                <div class="form-group">
+                    <label for="serviceName">Service Name</label>
+                    <input type="text" id="serviceName" required>
+                </div>
+                <div class="form-group">
+                    <label for="serviceDescription">Description</label>
+                    <textarea id="serviceDescription" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="servicePrice">Price</label>
+                    <input type="number" id="servicePrice" required>
+                </div>
+                <div class="form-group">
+                    <label for="serviceDuration">Duration (minutes)</label>
+                    <input type="number" id="serviceDuration" required>
+                </div>
+                <button type="submit" class="btn">Add Service</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Promotion Modal -->
+    <div id="addPromoModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New Promotion</h2>
+            <form id="addPromoForm">
+                <div class="form-group">
+                    <label for="promoTitle">Promotion Title</label>
+                    <input type="text" id="promoTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="promoDescription">Description</label>
+                    <textarea id="promoDescription" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="promoDiscount">Discount (%)</label>
+                    <input type="number" id="promoDiscount" min="0" max="100" required>
+                </div>
+                <div class="form-group">
+                    <label for="promoStartDate">Start Date</label>
+                    <input type="date" id="promoStartDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="promoEndDate">End Date</label>
+                    <input type="date" id="promoEndDate" required>
+                </div>
+                <button type="submit" class="btn">Add Promotion</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/admin-dashboard.js"></script>
+</body>
+</html>

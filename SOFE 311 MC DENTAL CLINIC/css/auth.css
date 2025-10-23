@@ -1,0 +1,11 @@
+/* Add this to your existing auth.css */
+
+.error-message {
+    background-color: #333;
+    color: #D4AF37;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+    text-align: center;
+    border: 1px solid #D4AF37;
+}
